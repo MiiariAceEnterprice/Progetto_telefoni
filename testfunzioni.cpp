@@ -130,6 +130,9 @@ void f_menuAdmin(Modello x[], int i){
                     f_viewModello(x[idmodello]);
                 }
                 break;
+            case 3:
+                
+                break;
         }
     } while (menu != 0);
 }
