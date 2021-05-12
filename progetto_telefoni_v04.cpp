@@ -205,6 +205,7 @@ void f_menuAdmin(Modello x[], int i){
             case 3:
             cout << "Inserisci l'identificativo del modello che vuoi cancellare: ";
             cin >> idmodello;
+            //
                 break;
         }
     } while (menu != 0);
