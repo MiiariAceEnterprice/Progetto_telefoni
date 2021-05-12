@@ -208,7 +208,7 @@ void f_menuAdmin(Modello x[], int i){
             //generatore 4 numeri per identificativo modello --> da fare prima con preparageneratore e tutte quelle robe li 
                 break;
             case 4:
-            
+
                 break;
         }
     } while (menu != 0);
@@ -240,6 +240,7 @@ int main()
 	char passwordefault[SIZE_PASSWORD] = "adminpwd"; 
     float capitale;
     _utente CEO;
+    bool firsTime = true;
     ///////////////////////////
     //_utente Arr_utenti[SUPER_SIZE_ARRAY];
     //int n_utente=0;
