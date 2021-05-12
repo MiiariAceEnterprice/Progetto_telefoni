@@ -12,7 +12,7 @@ Admin --> automatiche:
     non si può più comprare e tutti i telefoni di quel modello vengono cancellati
 visualizza modello
 -vedere il capitale 
--vedere ordine dei modelli più venduti
+-vedere ordine dei modelli più venduti --> top 3/5
 -vedere i telefoni venduti e a quale utente sono associate le caratteristiche
 
 Utente:

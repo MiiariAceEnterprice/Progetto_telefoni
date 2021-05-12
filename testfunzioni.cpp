@@ -104,8 +104,9 @@ void f_menuAdmin(Modello x[], int i){
     {
         cout << "1-Inerisci modello\n";
         cout << "2-Visualizza modello\n";
-        cout << "3-Visualizza caratteristiche\n";
         cout << "4-Cancellazione modello;\n";
+        cout << "5-Visualizza capitale;\n";
+        cout << "6-Visualizza i modelli piu' venduti;\n";
         cout << "0-Termina sessione;\n\n";
         cin >> menu;
         switch (menu){
@@ -131,7 +132,7 @@ void f_menuAdmin(Modello x[], int i){
                 }
                 break;
             case 3:
-                
+
                 break;
         }
     } while (menu != 0);
