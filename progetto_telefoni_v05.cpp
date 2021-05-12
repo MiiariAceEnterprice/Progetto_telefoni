@@ -166,6 +166,10 @@ void f_viewModello(Modello& x){
     cout << "Costo di produzione" << x.costo_produzione << "€";
 }
 
+void f_inserisciCapitale(bool primavolta, float capitale){
+    cout << "inserisci il capitale in euro di cui disponi: ";
+    cin >> capitale;
+}
 
 void f_menuAdmin(Modello x[], int i){
     int menu;
@@ -283,7 +287,12 @@ int main()
         	char tmp_passwordAD[SIZE_PASSWORD];
         	f_verificapassword(tmp_passwordAD,passwordefault,3);
             cls();
-            f_menuAdmin(Arr_modelli, n_modelli);
+            if(firsTime == true){
+                f_inserisciCapitale(firsTime, capitale);
+                firsTime = false;
+                f_menuAdmin(Arr_modelli, n_modelli);
+            }else{
+            f_menuAdmin(Arr_modelli, n_modelli);}
             break;
        ////////UTENTE/////////////
         case 2: 
