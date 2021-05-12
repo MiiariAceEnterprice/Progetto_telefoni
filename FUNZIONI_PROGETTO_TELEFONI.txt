@@ -1,0 +1,30 @@
+Admin --> automatiche:
+                -login come Admin --> immettere capitale iniziale
+-Aggiungi Modello
+    -caratteristiche Modello
+        -batteria
+        -memoria
+        -pollici schermo
+        -costo di produione
+        -prezzo di vendita
+        -Numero di unità da produrre --> se il calcolo Num.Unità * costo produzione è maggiore del capitale allora da errore.
+-rimuovere il modello dal mercato:
+    non si può più comprare e tutti i telefoni di quel modello vengono cancellati
+-vedere il capitale 
+-vedere ordine dei modelli più venduti
+-vedere i telefoni venduti e a quale utente sono associate le caratteristiche
+
+Utente:
+    hai già un dispositivo?
+        SI:
+        -login account
+        -visualizza caratteristiche
+        -traccia telefono
+        NO:
+        -Acquista un dispositivo: --> dopo fa cls e riparte dalla domanda iniziale
+            "esce un menù e seleziona il modello"
+            se il modello non è disponibile:
+            -chiede se vuole un altro modello 
+            -esci --> cls
+            se compra un dispositivo:
+            -crea account
