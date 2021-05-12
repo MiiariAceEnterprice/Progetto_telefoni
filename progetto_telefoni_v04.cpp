@@ -174,10 +174,10 @@ void f_menuAdmin(Modello x[], int i){
     {
         cout << "1-Inerisci modello\n";
         cout << "2-Visualizza modello\n";
-        cout << "4-Cancellazione modello;\n";
-        cout << "5-Visualizza capitale;\n";
-        cout << "6-Visualizza i modelli piu' venduti;\n";
-        cout << "7-;\n";
+        cout << "3-Cancellazione modello;\n";
+        cout << "4-Visualizza capitale;\n";
+        cout << "5-Visualizza i modelli piu' venduti;\n";
+        cout << "6-Visualizza telefono e account associato;\n";
         cout << "0-Termina sessione;\n\n";
         cin >> menu;
         switch (menu){
