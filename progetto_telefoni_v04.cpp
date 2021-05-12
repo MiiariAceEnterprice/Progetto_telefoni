@@ -144,28 +144,69 @@ void f_verificapassword(char x[],char confronto[],int colore_scritte){
 
 ////SEZIONE ADMIN////////////////////////////////////////
 
+void f_nuovoModello(Modello& x, int i){
+    cout << "Modello n." << i << "\n\n";
+    cout << "Inserisci la capacita' della batteria del modello(mA): ";
+    cin >> x.batteria;
+    cout << "Inserisci la grandezza dello schermo(in pollici): ";
+    cin >> x.pollici_schermo;
+    cout << "Inserisci la memoria del dispositivo(GB): ";
+    cin >> x.memoria;
+    cout << "Inserisci il prezzo di vendita del dispositivo: ";
+    cin >> x.prezzo_vendita;
+    cout << "Inserisci il costo di produzione del dispositivo: ";
+    cin >> x.costo_produzione;
+}
+
+void f_viewModello(Modello& x){
+    cout << "Batteria: " << x.batteria << "mA\n";
+    cout << "Memoria: " << x.memoria << "GB\n";
+    cout << "Pollici: " << x.pollici_schermo << "\n";
+    cout << "Prezzo di vendita: " << x.prezzo_vendita << "€";
+    cout << "Costo di produzione" << x.costo_produzione << "€";
+}
 
 
-
-void f_menuAdmin()
-{
-    int m;
-    cls();
-	SetColor(3);
-	cout << "\n=======Menu'======";
-    cout << "\n1-Inerisci modello\n";
-    cout << "2-Visualizza modello\n";
-    cout << "3-Visualizza caratteristiche\n";
-    cout << "4-Cancellazione modello;\n";
-    cout << "0-Termina sessione;\n";
-    cout << "===================";
-    cout << "\n-->";
-    cin >> m;
-    switch (m){
-        case 1:
-        	///////fa cose;
-            break;
-    }
+void f_menuAdmin(Modello x[], int i){
+    int menu;
+    int idmodello;
+    do
+    {
+        cout << "1-Inerisci modello\n";
+        cout << "2-Visualizza modello\n";
+        cout << "4-Cancellazione modello;\n";
+        cout << "5-Visualizza capitale;\n";
+        cout << "6-Visualizza i modelli piu' venduti;\n";
+        cout << "7-;\n";
+        cout << "0-Termina sessione;\n\n";
+        cin >> menu;
+        switch (menu){
+            case 1:
+                cls();
+                f_nuovoModello(x[i], i);
+                i++;
+                    break;
+                case 2:
+                cls();
+                if(i == 0){
+                    cls();
+                    cout << "Devi prima inserire un modello!\n";
+                    f_nuovoModello(x[i], i);
+                    i++;
+                }else{
+                    for(int j = 0; j <= i; j++){
+                        cout << "id = " << j << "\n";
+                    }
+                    cout << "Inserisci l'identificativo del modello: ";
+                    cin >> idmodello;
+                    f_viewModello(x[idmodello]);
+                }
+                break;
+            case 3:
+            
+                break;
+        }
+    } while (menu != 0);
 }
 /////////////////////////////////////////////
 
@@ -235,7 +276,8 @@ int main()
         	cout << "=============\nSezione Admin\n=============\n";
         	char tmp_passwordAD[SIZE_PASSWORD];
         	f_verificapassword(tmp_passwordAD,passwordefault,3);
-            f_menuAdmin();
+            cls();
+            f_menuAdmin(Arr_modelli, n_modelli);
             break;
        ////////UTENTE/////////////
         case 2: 
