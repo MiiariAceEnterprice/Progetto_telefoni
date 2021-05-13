@@ -144,7 +144,9 @@ void f_verificapassword(char x[],char confronto[],int colore_scritte){
 
 ////SEZIONE ADMIN////////////////////////////////////////
 
-void f_nuovoModello(Modello& x, int i){
+void f_nuovoModello(Modello& x, int i, float capitale){
+    int n_dispositivi;
+
     cout << "Modello n." << i << "\n\n";
     cout << "Inserisci la capacita' della batteria del modello(mA): ";
     cin >> x.batteria;
@@ -156,6 +158,9 @@ void f_nuovoModello(Modello& x, int i){
     cin >> x.prezzo_vendita;
     cout << "Inserisci il costo di produzione del dispositivo: ";
     cin >> x.costo_produzione;
+    cout << "Inserisci quanti dispositivi vuoi produrre: ";
+    cin >> n_dispositivi;
+
 }
 
 void f_viewModello(Modello& x){
@@ -167,11 +172,11 @@ void f_viewModello(Modello& x){
 }
 
 void f_inserisciCapitale(bool primavolta, float capitale){
-    cout << "inserisci il capitale in euro di cui disponi: ";
+    cout << "Inserisci il capitale in euro di cui disponi: ";
     cin >> capitale;
 }
 
-void f_menuAdmin(Modello x[], int i){
+void f_menuAdmin(Modello x[], int i, float capitale){
     int menu;
     int idmodello;
     do
@@ -187,7 +192,7 @@ void f_menuAdmin(Modello x[], int i){
         switch (menu){
             case 1:
                 cls();
-                f_nuovoModello(x[i], i);
+                f_nuovoModello(x[i], i, capitale);
                 i++;
                     break;
                 case 2:
@@ -195,7 +200,7 @@ void f_menuAdmin(Modello x[], int i){
                 if(i == 0){
                     cls();
                     cout << "Devi prima inserire un modello!\n";
-                    f_nuovoModello(x[i], i);
+                    f_nuovoModello(x[i], i, capitale);
                     i++;
                 }else{
                     for(int j = 0; j <= i; j++){
@@ -290,9 +295,11 @@ int main()
             if(firsTime == true){
                 f_inserisciCapitale(firsTime, capitale);
                 firsTime = false;
-                f_menuAdmin(Arr_modelli, n_modelli);
+                cls();
+                f_menuAdmin(Arr_modelli, n_modelli, capitale);
             }else{
-            f_menuAdmin(Arr_modelli, n_modelli);}
+            f_menuAdmin(Arr_modelli, n_modelli, capitale);
+            }
             break;
        ////////UTENTE/////////////
         case 2: 
