@@ -29,6 +29,7 @@ typedef struct{
     int batteria;
     int pollici_schermo;
     int memoria;
+    int codice_modello;
     float prezzo_vendita;
     float costo_produzione;
 }Modello;
@@ -110,6 +111,7 @@ int sorteggiaNumero(int min, int max)
 }
 
 void f_codiceTelefono(char codice[],int n){
+	preparaGeneratore();
 		codice[0]=sorteggiaNumero('A','Z');
 		codice[1]=sorteggiaNumero('A','Z');
 		codice[2]=sorteggiaNumero('0','9');
@@ -138,15 +140,27 @@ void f_verificapassword(char x[],char confronto[],int colore_scritte){
         
     cout << "Passwod inserita con successo";
 }
+
+int f_codicemodello(Modello Arr[],int n){
+	preparaGeneratore();
+	int cod= sorteggiaNumero(1000,9999);
+	cout << "\ncodicemod: " << cod << "\n";
+	for(int i=0;i<n;i++){
+		preparaGeneratore();
+	while(cod==Arr[i].codice_modello){
+		cod= sorteggiaNumero(1000,9999);
+	}	
+		
+	}
+}
 ////////////////////////////////////////////////////////
 
 
 
 ////SEZIONE ADMIN////////////////////////////////////////
 
-void f_nuovoModello(Modello& x, int i, float capitale){
+void f_nuovoModello(Modello Arr[],Modello& x, int i, float capitale){
     int n_dispositivi;
-
     cout << "Modello n." << i << "\n\n";
     cout << "Inserisci la capacita' della batteria del modello(mA): ";
     cin >> x.batteria;
@@ -160,6 +174,8 @@ void f_nuovoModello(Modello& x, int i, float capitale){
     cin >> x.costo_produzione;
     cout << "Inserisci quanti dispositivi vuoi produrre: ";
     cin >> n_dispositivi;
+    ////generatore del codice modello (4 cifre)
+    x.codice_modello = f_codicemodello(Arr,i);
 
 }
 
@@ -167,8 +183,8 @@ void f_viewModello(Modello& x){
     cout << "Batteria: " << x.batteria << "mA\n";
     cout << "Memoria: " << x.memoria << "GB\n";
     cout << "Pollici: " << x.pollici_schermo << "\n";
-    cout << "Prezzo di vendita: " << x.prezzo_vendita << "€";
-    cout << "Costo di produzione" << x.costo_produzione << "€";
+    cout << "Prezzo di vendita: " << x.prezzo_vendita << "\n";
+    cout << "Costo di produzione" << x.costo_produzione << "\n";
 }
 
 void f_inserisciCapitale(bool primavolta, float capitale){
@@ -192,7 +208,7 @@ void f_menuAdmin(Modello x[], int i, float capitale){
         switch (menu){
             case 1:
                 cls();
-                f_nuovoModello(x[i], i, capitale);
+                f_nuovoModello(x,x[i], i,capitale);
                 i++;
                     break;
                 case 2:
@@ -200,10 +216,10 @@ void f_menuAdmin(Modello x[], int i, float capitale){
                 if(i == 0){
                     cls();
                     cout << "Devi prima inserire un modello!\n";
-                    f_nuovoModello(x[i], i, capitale);
+                    f_nuovoModello(x,x[i], i, capitale);
                     i++;
                 }else{
-                    for(int j = 0; j <= i; j++){
+                    for(int j = 0; j < i; j++){
                         cout << "id = " << j << "\n";
                     }
                     cout << "Inserisci l'identificativo del modello: ";
