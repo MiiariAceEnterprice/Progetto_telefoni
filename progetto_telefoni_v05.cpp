@@ -144,14 +144,13 @@ void f_verificapassword(char x[],char confronto[],int colore_scritte){
 int f_codicemodello(Modello Arr[],int n){
 	preparaGeneratore();
 	int cod= sorteggiaNumero(1000,9999);
-	cout << "\ncodicemod: " << cod << "\n";
 	for(int i=0;i<n;i++){
 		preparaGeneratore();
 	while(cod==Arr[i].codice_modello){
 		cod= sorteggiaNumero(1000,9999);
 	}	
-		
 	}
+	return cod;
 }
 ////////////////////////////////////////////////////////
 
@@ -174,15 +173,10 @@ void f_nuovoModello(Modello Arr[],Modello& x, int i, float capitale){
     cin >> x.costo_produzione;
     cout << "Inserisci quanti dispositivi vuoi produrre: ";
     cin >> n_dispositivi;
-    x.codice_modello = f_codicemodello(Arr,i);////generatore del codice modello (4 cifre)
-    cout << "codice =" << x.codice_modello <<"\n";
+    ////generatore del codice modello (4 cifre)
+    x.codice_modello = f_codicemodello(Arr,i);
+    cout << "\ncodice modello: " << x.codice_modello;
 
-}
-
-void f_ricercaIDmodello(int idin, Modello x[], int i){
-    for(int j = 0; j < i && idin != x[j].codice_modello; j++){
-        cout << "Confronto " << idin << "con " << x[j].codice_modello << "\nt";
-    }
 }
 
 void f_viewModello(Modello& x){
@@ -225,15 +219,18 @@ void f_menuAdmin(Modello x[], int i, float capitale){
                     f_nuovoModello(x,x[i], i, capitale);
                     i++;
                 }else{
+                    for(int j = 0; j < i; j++){
+                        cout << "id = " << j << "\n";
+                    }
                     cout << "Inserisci l'identificativo del modello: ";
                     cin >> idmodello;
-                    f_ricercaIDmodello(idmodello, x, i);
-                    //f_viewModello(x[idmodello]);
+                    f_viewModello(x[idmodello]);
                 }
                 break;
             case 3:
             cout << "Inserisci l'identificativo del modello che vuoi cancellare: ";
             cin >> idmodello;
+            //generatore 4 numeri per identificativo modello --> da fare prima con preparageneratore e tutte quelle robe li 
                 break;
             case 4:
 
