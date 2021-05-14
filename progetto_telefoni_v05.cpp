@@ -175,8 +175,7 @@ void f_nuovoModello(Modello Arr[],Modello& x, int i, float capitale){
     cin >> n_dispositivi;
     ////generatore del codice modello (4 cifre)
     x.codice_modello = f_codicemodello(Arr,i);
-    cout << "\ncodice modello: " << x.codice_modello;
-
+    cout << "codice modello: " << x.codice_modello << "\n";
 }
 
 void f_viewModello(Modello& x){
@@ -220,7 +219,7 @@ void f_menuAdmin(Modello x[], int i, float capitale){
                     i++;
                 }else{
                     for(int j = 0; j < i; j++){
-                        cout << "id = " << j << "\n";
+                        cout << "1 - " << x[j].codice_modello << "\n";
                     }
                     cout << "Inserisci l'identificativo del modello: ";
                     cin >> idmodello;
