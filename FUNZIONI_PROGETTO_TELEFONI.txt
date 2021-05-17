@@ -3,7 +3,7 @@ Admin --> automatiche:
 -Aggiungi Modello
     -caratteristiche Modello
         -batteria
-        -memoria
+        -memoria (64-128-256-512 GB)
         -pollici schermo
         -costo di produione
         -prezzo di vendita
@@ -19,8 +19,8 @@ Utente:
     hai già un dispositivo?
         SI:
         -login account
-        -visualizza caratteristiche
         -traccia telefono
+        -visualizza i telefoni che ha, e per ogni telefono le caratteristiche
         NO:
         -Acquista un dispositivo: --> dopo fa cls e riparte dalla domanda iniziale
             "esce un menù e seleziona il modello"
